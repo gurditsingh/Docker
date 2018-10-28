@@ -16,7 +16,7 @@ volumes: [
           passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
            checkout scm
           sh """
-            docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD}
+            docker -H https://hub.docker.com login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD}
             docker build -t namespace/my-image .
             docker push namespace/my-image
             """
