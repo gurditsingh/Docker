@@ -8,7 +8,7 @@ volumes: [
     
     stage('Create Docker images') {
       container('docker') {
-        
+        checkout scm
           sh """
             docker login -u irdalin -p Hhelibebcnofne
             docker build -t namespace/my-image .
