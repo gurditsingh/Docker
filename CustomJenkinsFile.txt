@@ -1,10 +1,10 @@
-podTemplate(label: 'docker', containers: [
+podTemplate(label: 'Jenkins', containers: [
   containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true),
 ],
 volumes: [
   hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock')
 ]) {
-  node('docker') {
+  node('Jenkins') {
     
     stage('Create Docker images') {
       container('docker') {
